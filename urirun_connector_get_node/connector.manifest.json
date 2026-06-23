@@ -1,0 +1,38 @@
+{
+  "id": "get-node",
+  "name": "Get Node",
+  "status": "available",
+  "category": "Operations",
+  "summary": "Bootstrap and health-check urirun nodes from get.ifuri.com through node:// URI routes.",
+  "description": "Get Node is an external urirun connector package. It exposes the get.ifuri.com node bootstrap one-liner and a local runtime health check as node:// routes, declared with a typed @handler and projectable to MCP tools / A2A skills. Both routes are read-only and contact no network at call time.",
+  "useCases": [
+    "Hand a new machine the canonical get.ifuri.com bootstrap command from a flow.",
+    "Health-check the local urirun runtime (version, importability, CLI) from a URI route.",
+    "Expose node bootstrap and health to MCP/A2A so agents can prepare hosts."
+  ],
+  "flowExample": [
+    "node://host/runtime/query/health",
+    "node://get/installer/query/script"
+  ],
+  "requires": [
+    "python>=3.10"
+  ],
+  "install": {
+    "mode": "urirun-extra",
+    "pipSpec": "urirun-connector-get-node @ git+https://github.com/if-uri/urirun-connector-get-node.git@v0.1.0"
+  },
+  "provenance": "community",
+  "publisher": {
+    "name": "if-uri",
+    "url": "https://ifuri.com",
+    "github": "https://github.com/if-uri"
+  },
+  "docsUrl": "https://github.com/if-uri/urirun-connector-get-node",
+  "keywords": [
+    "node",
+    "bootstrap",
+    "installer",
+    "health",
+    "connector"
+  ]
+}
