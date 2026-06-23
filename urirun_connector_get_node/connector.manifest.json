@@ -34,5 +34,15 @@
     "installer",
     "health",
     "connector"
+  ],
+  "routes": [
+    "node://get/installer/query/script",
+    "node://host/runtime/query/health"
+  ],
+  "uriSchemes": [
+    "node"
+  ],
+  "adapterKinds": [
+    "local-function"
   ]
 }
