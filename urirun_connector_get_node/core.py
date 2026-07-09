@@ -108,10 +108,6 @@ def health() -> dict[str, Any]:
 
 # --- authoring surface: bindings / manifest / CLI --------------------------
 
-def urirun_bindings() -> dict[str, Any]:
-    """Serializable v2 bindings for this connector (entry point: urirun.bindings)."""
-    return conn.bindings()
-
 @conn.handler("node://host/doctor/query/report", isolated=True, meta={"label": "Connector readiness report"})
 def doctor() -> dict[str, Any]:
     """Return a safe, read-only connector readiness report for CI smoke tests."""
@@ -130,6 +126,11 @@ def _connector_version() -> str:
         return version("urirun-connector-get-node")
     except Exception:
         return "0.1.0"
+
+
+def urirun_bindings() -> dict[str, Any]:
+    """Serializable v2 bindings for this connector (entry point: urirun.bindings)."""
+    return conn.bindings()
 
 
 def connector_manifest() -> dict[str, Any]:
