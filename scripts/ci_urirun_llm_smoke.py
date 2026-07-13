@@ -9,7 +9,7 @@ from urirun_llm_runtime import Executor
 from urirun_connector_get_node.core import urirun_bindings
 
 
-SMOKE_URI = "node://host/runtime/query/health"
+SMOKE_URI = "node://host/doctor/query/report"
 CONNECTOR_ID = "get-node"
 
 
