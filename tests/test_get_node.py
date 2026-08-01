@@ -18,6 +18,7 @@ from urirun_connector_get_node import (
 
 ROUTE_INSTALLER = "node://get/installer/query/script"
 ROUTE_HEALTH = "node://host/runtime/query/health"
+ROUTE_DOCTOR = "node://host/doctor/query/report"
 
 
 def test_installer_default() -> None:
@@ -48,7 +49,7 @@ def test_health_handler_matches_runtime() -> None:
 
 def test_bindings_are_isolated_handlers() -> None:
     b = urirun_bindings()["bindings"]
-    assert set(b) == {ROUTE_INSTALLER, ROUTE_HEALTH}
+    assert set(b) == {ROUTE_INSTALLER, ROUTE_HEALTH, ROUTE_DOCTOR}
 
     installer = b[ROUTE_INSTALLER]
     # registry-portable in-process handler: runs out-of-process via urirun.exec
@@ -79,7 +80,7 @@ def test_runtime_executes_from_compiled_registry() -> None:
 def test_manifest_prose_plus_derived_routes() -> None:
     m = connector_manifest()
     assert m["id"] == "get-node"
-    assert set(m["routes"]) == {ROUTE_INSTALLER, ROUTE_HEALTH}
+    assert set(m["routes"]) == {ROUTE_INSTALLER, ROUTE_HEALTH, ROUTE_DOCTOR}
     assert m["uriSchemes"] == ["node"]
     assert m["summary"]  # prose preserved
     assert m["install"]["mode"] == "urirun-extra"

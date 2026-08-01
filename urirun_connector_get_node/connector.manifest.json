@@ -37,6 +37,7 @@
   ],
   "routes": [
     "node://get/installer/query/script",
+    "node://host/doctor/query/report",
     "node://host/runtime/query/health"
   ],
   "uriSchemes": [
